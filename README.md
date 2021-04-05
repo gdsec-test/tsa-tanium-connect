@@ -1,2 +1,3 @@
-# tanium-connect
-Tanium Connect module configuration designed to integrate with all Tanium environments.
+# Tanium Connect
+Tanium Connect module configuration including Connect jobs.
+Any Connect jobs intended for Production should be configured identically across all Tanium environments, starting with Dev.
