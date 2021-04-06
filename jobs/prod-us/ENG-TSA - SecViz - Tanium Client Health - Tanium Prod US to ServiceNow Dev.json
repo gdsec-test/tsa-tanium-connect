@@ -144,7 +144,7 @@
               "value": "text/csv"
             }
           ],
-          "name": "ENG-TSA Tanium Client Health - Tanium Prod to ServiceNow Dev",
+          "name": "ENG-TSA - SecViz - Tanium Client Health - Tanium Prod US to ServiceNow Dev",
           "destinationType": "https",
           "url": "https://godaddydev.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=e7e8ec04db1f6c5459ac6e25ca961986&file_name=tanium-client-health-us.csv",
           "method": "POST",
