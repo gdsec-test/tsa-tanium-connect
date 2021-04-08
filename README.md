@@ -1,5 +1,5 @@
 # Tanium Connect
-Managed by Tooling Support & Automations.
+Managed by Tooling Support & Automation.
 
 This repository contains actively implemented Tanium Connect module configurations and jobs.
 
