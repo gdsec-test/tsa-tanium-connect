@@ -1,5 +1,7 @@
 # Tanium Connect
-Tanium Connect module configuration including Connect jobs.
+Managed by Tooling Support & Automations.
+
+This repository contains actively implemented Tanium Connect module configurations and jobs.
 
 Any Connect jobs intended for Production should be configured identically across all Tanium environments, starting with Dev.
 
