@@ -1,0 +1,590 @@
+[
+  {
+    "name": "ENG-TSA - SecViz - Tanium Client Status - Tanium Prod US to ServiceNow Prod",
+    "description": "For export to ServiceNow as part of Tanium Client Health Visibility",
+    "minimumPassPercentage": 80,
+    "logLevel": 30,
+    "schedule": "25 * * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/systemstatuses",
+        "arguments": {
+          "lastRegistrationMinutes": 1440,
+          "batchSize": 10000
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "ComputerId",
+              "renameTo": "Tanium Computer ID",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "HostName",
+              "renameTo": "HostName",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ClientNetworkLocation",
+              "renameTo": "ClientNetworkLocation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ServerNetworkLocation",
+              "renameTo": "ServerNetworkLocation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "SendState",
+              "renameTo": "SendState",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ReceiveState",
+              "renameTo": "ReceiveState",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Status",
+              "renameTo": "Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "LastRegistration",
+              "renameTo": "Tanium Client Last Seen",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "FullVersion",
+              "renameTo": "FullVersion",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ProtocolVersion",
+              "renameTo": "ProtocolVersion",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ValidKey",
+              "renameTo": "ValidKey",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "RegisteredWithTLS",
+              "renameTo": "RegisteredWithTLS",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": true,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            }
+          ],
+          "name": "ENG-TSA - SecViz - Tanium Client Status - Tanium Prod US to ServiceNow Prod",
+          "destinationType": "https",
+          "url": "https://godaddy.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=e7e8ec04db1f6c5459ac6e25ca961986&file_name=tanium-client-status-us.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  },
+  {
+    "name": "ENG-TSA - SecViz - Tanium Client Status - Tanium Prod US to ServiceNow Test",
+    "description": "For export to ServiceNow as part of Tanium Client Health Visibility",
+    "minimumPassPercentage": 80,
+    "logLevel": 30,
+    "schedule": "25 * * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/systemstatuses",
+        "arguments": {
+          "lastRegistrationMinutes": 1440,
+          "batchSize": 10000
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "ComputerId",
+              "renameTo": "Tanium Computer ID",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "HostName",
+              "renameTo": "HostName",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ClientNetworkLocation",
+              "renameTo": "ClientNetworkLocation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ServerNetworkLocation",
+              "renameTo": "ServerNetworkLocation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "SendState",
+              "renameTo": "SendState",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ReceiveState",
+              "renameTo": "ReceiveState",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Status",
+              "renameTo": "Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "LastRegistration",
+              "renameTo": "Tanium Client Last Seen",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "FullVersion",
+              "renameTo": "FullVersion",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ProtocolVersion",
+              "renameTo": "ProtocolVersion",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ValidKey",
+              "renameTo": "ValidKey",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "RegisteredWithTLS",
+              "renameTo": "RegisteredWithTLS",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": true,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            }
+          ],
+          "name": "ENG-TSA - SecViz - Tanium Client Status - Tanium Prod US to ServiceNow Test",
+          "destinationType": "https",
+          "url": "https://godaddytest.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=e7e8ec04db1f6c5459ac6e25ca961986&file_name=tanium-client-status-us.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  },
+  {
+    "name": "ENG-TSA - SecViz - Tanium Client Status - Tanium Prod US to ServiceNow Dev",
+    "description": "For export to ServiceNow as part of Tanium Client Health Visibility",
+    "minimumPassPercentage": 80,
+    "logLevel": 30,
+    "schedule": "25 * * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/systemstatuses",
+        "arguments": {
+          "lastRegistrationMinutes": 1440,
+          "batchSize": 10000
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "ComputerId",
+              "renameTo": "Tanium Computer ID",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "HostName",
+              "renameTo": "HostName",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ClientNetworkLocation",
+              "renameTo": "ClientNetworkLocation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ServerNetworkLocation",
+              "renameTo": "ServerNetworkLocation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "SendState",
+              "renameTo": "SendState",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ReceiveState",
+              "renameTo": "ReceiveState",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Status",
+              "renameTo": "Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "LastRegistration",
+              "renameTo": "Tanium Client Last Seen",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "FullVersion",
+              "renameTo": "FullVersion",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ProtocolVersion",
+              "renameTo": "ProtocolVersion",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "ValidKey",
+              "renameTo": "ValidKey",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "RegisteredWithTLS",
+              "renameTo": "RegisteredWithTLS",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": true,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            }
+          ],
+          "name": "ENG-TSA - SecViz - Tanium Client Status - Tanium Prod US to ServiceNow Dev",
+          "destinationType": "https",
+          "url": "https://godaddydev.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=e7e8ec04db1f6c5459ac6e25ca961986&file_name=tanium-client-status-us.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  }
+]
