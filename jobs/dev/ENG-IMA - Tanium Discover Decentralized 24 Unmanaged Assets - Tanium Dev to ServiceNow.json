@@ -1,0 +1,662 @@
+[
+  {
+    "name": "ENG-IMA - Tanium Discover Decentralized /24 Unmanaged Assets - Tanium Dev to ServiceNow Prod",
+    "description": "Supports 100% IP Visibility as part of the Security Visibility initiative.",
+    "minimumPassPercentage": 80,
+    "logLevel": 30,
+    "schedule": "05 21 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "ENG-IMA - Tanium Discover Decentralized /24 Unmanaged Assets",
+          "contextGroupName": "All Computers",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": false,
+          "excludePolling": false,
+          "flatten": true,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "GoDaddy Serial",
+              "renameTo": "GoDaddy Serial",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Method",
+              "renameTo": "Method",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "NAT IP Address",
+              "renameTo": "NAT IP Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "IP Address",
+              "renameTo": "IP Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Computer Name",
+              "renameTo": "Computer Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "MAC Address",
+              "renameTo": "MAC Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "OS Platform",
+              "renameTo": "OS Platform",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "OS Generation",
+              "renameTo": "OS Generation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Open Ports",
+              "renameTo": "Open Ports",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Profile",
+              "renameTo": "Profile",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Row Number",
+              "renameTo": "Row Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": true,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            }
+          ],
+          "name": "ENG-IMA - Tanium Discover Decentralized /24 Unmanaged Assets - Tanium Dev to ServiceNow Prod",
+          "destinationType": "https",
+          "url": "https://godaddy.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=c0f3f512dbab5cd059ac6e25ca9619fe&file_name=export-dev.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  },
+  {
+    "name": "ENG-IMA - Tanium Discover Decentralized /24 Unmanaged Assets - Tanium Dev to ServiceNow Test",
+    "description": "Supports 100% IP Visibility as part of the Security Visibility initiative.",
+    "minimumPassPercentage": 80,
+    "logLevel": 30,
+    "schedule": "05 21 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "ENG-IMA - Tanium Discover Decentralized /24 Unmanaged Assets",
+          "contextGroupName": "All Computers",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": false,
+          "excludePolling": false,
+          "flatten": true,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "GoDaddy Serial",
+              "renameTo": "GoDaddy Serial",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Method",
+              "renameTo": "Method",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "NAT IP Address",
+              "renameTo": "NAT IP Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "IP Address",
+              "renameTo": "IP Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Computer Name",
+              "renameTo": "Computer Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "MAC Address",
+              "renameTo": "MAC Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "OS Platform",
+              "renameTo": "OS Platform",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "OS Generation",
+              "renameTo": "OS Generation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Open Ports",
+              "renameTo": "Open Ports",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Profile",
+              "renameTo": "Profile",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Row Number",
+              "renameTo": "Row Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": true,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            }
+          ],
+          "name": "ENG-IMA - Tanium Discover Decentralized /24 Unmanaged Assets - Tanium Dev to ServiceNow Test",
+          "destinationType": "https",
+          "url": "https://godaddytest.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=c0f3f512dbab5cd059ac6e25ca9619fe&file_name=export-dev.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  },
+  {
+    "name": "ENG-IMA - Tanium Discover Decentralized /24 Unmanaged Assets - Tanium Dev to ServiceNow Dev",
+    "description": "Supports 100% IP Visibility as part of the Security Visibility initiative.",
+    "minimumPassPercentage": 80,
+    "logLevel": 30,
+    "schedule": "05 21 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "ENG-IMA - Tanium Discover Decentralized /24 Unmanaged Assets",
+          "contextGroupName": "All Computers",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": false,
+          "excludePolling": false,
+          "flatten": true,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "GoDaddy Serial",
+              "renameTo": "GoDaddy Serial",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Method",
+              "renameTo": "Method",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "NAT IP Address",
+              "renameTo": "NAT IP Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "IP Address",
+              "renameTo": "IP Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Computer Name",
+              "renameTo": "Computer Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "MAC Address",
+              "renameTo": "MAC Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "OS Platform",
+              "renameTo": "OS Platform",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "OS Generation",
+              "renameTo": "OS Generation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Open Ports",
+              "renameTo": "Open Ports",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Profile",
+              "renameTo": "Profile",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Row Number",
+              "renameTo": "Row Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": true,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            }
+          ],
+          "name": "ENG-IMA - Tanium Discover Decentralized /24 Unmanaged Assets - Tanium Dev to ServiceNow Dev",
+          "destinationType": "https",
+          "url": "https://godaddydev.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=c0f3f512dbab5cd059ac6e25ca9619fe&file_name=export-dev.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  }
+]
