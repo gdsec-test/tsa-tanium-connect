@@ -76,8 +76,19 @@
               "checked": true
             },
             {
-              "name": "patch_coverage_status",
+              "name": "status",
               "renameTo": "Tanium Patch Coverage Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "detail",
+              "renameTo": "Tanium Patch Coverage Status Details",
               "type": null,
               "value": null,
               "hint": null,
@@ -239,8 +250,19 @@
               "checked": true
             },
             {
-              "name": "patch_coverage_status",
+              "name": "status",
               "renameTo": "Tanium Patch Coverage Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "detail",
+              "renameTo": "Tanium Patch Coverage Status Details",
               "type": null,
               "value": null,
               "hint": null,
@@ -402,8 +424,19 @@
               "checked": true
             },
             {
-              "name": "patch_coverage_status",
+              "name": "status",
               "renameTo": "Tanium Patch Coverage Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "detail",
+              "renameTo": "Tanium Patch Coverage Status Details",
               "type": null,
               "value": null,
               "hint": null,
