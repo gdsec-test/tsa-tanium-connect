@@ -30,6 +30,14 @@
         }
       },
       {
+        "route": "/v1/filters/numerics",
+        "arguments": {
+          "columnName": "Age",
+          "operator": "<",
+          "targetValue": 3601
+        }
+      },
+      {
         "route": "/v1/formats/columns",
         "arguments": {
           "columns": [
@@ -72,10 +80,10 @@
               "type": null,
               "value": null,
               "hint": null,
-              "valueType": "Numeric",
+              "valueType": "Unmodified",
               "defaultValue": null,
               "formatString": null,
-              "checked": false
+              "checked": true
             },
             {
               "name": "Row Number",
@@ -173,6 +181,14 @@
         }
       },
       {
+        "route": "/v1/filters/numerics",
+        "arguments": {
+          "columnName": "Age",
+          "operator": "<",
+          "targetValue": 3601
+        }
+      },
+      {
         "route": "/v1/formats/columns",
         "arguments": {
           "columns": [
@@ -215,10 +231,10 @@
               "type": null,
               "value": null,
               "hint": null,
-              "valueType": "Numeric",
+              "valueType": "Unmodified",
               "defaultValue": null,
               "formatString": null,
-              "checked": false
+              "checked": true
             },
             {
               "name": "Row Number",
@@ -316,6 +332,14 @@
         }
       },
       {
+        "route": "/v1/filters/numerics",
+        "arguments": {
+          "columnName": "Age",
+          "operator": "<",
+          "targetValue": 3601
+        }
+      },
+      {
         "route": "/v1/formats/columns",
         "arguments": {
           "columns": [
@@ -358,10 +382,10 @@
               "type": null,
               "value": null,
               "hint": null,
-              "valueType": "Numeric",
+              "valueType": "Unmodified",
               "defaultValue": null,
               "formatString": null,
-              "checked": false
+              "checked": true
             },
             {
               "name": "Row Number",
