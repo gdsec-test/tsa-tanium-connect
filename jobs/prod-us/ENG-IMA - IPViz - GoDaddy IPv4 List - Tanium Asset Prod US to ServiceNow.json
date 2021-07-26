@@ -1,0 +1,206 @@
+[
+  {
+    "name": "ENG-IMA - IPViz - GoDaddy IPv4 List - Tanium Asset Prod US to ServiceNow Prod",
+    "description": "For export to ServiceNow via Tanium Connect as part of 100% IP Visibility. Contact #cmdb or #tanium for help with this integration.",
+    "minimumPassPercentage": 80,
+    "logLevel": 30,
+    "schedule": "55 04 * * *",
+    "scheduleTimeZone": "America/Phoenix",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/pluginConfigurations/asset/report-source",
+        "arguments": {
+          "config": {
+            "type": "Asset Report",
+            "maxTries": 5,
+            "retryDelayMillis": 10000,
+            "batchSize": 5000,
+            "assetReportName": "ENG-IMA - IPViz - GoDaddy IPv4 List",
+            "selectedReportId": 80
+          },
+          "module": "asset",
+          "plugin": "report-source",
+          "type": "sources",
+          "destinationType": "pluginConfigurations",
+          "name": "asset-report-source-1627321157163-49"
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": false,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "name": "ENG-IMA - IPViz - GoDaddy IPv4 List - Tanium Asset Prod US to ServiceNow Prod",
+          "destinationType": "https",
+          "url": "https://godaddy.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=ac5f54e6db40ecd859ac6e25ca961972&file_name=export-us.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  },
+  {
+    "name": "ENG-IMA - IPViz - GoDaddy IPv4 List - Tanium Asset Prod US to ServiceNow Test",
+    "description": "For export to ServiceNow via Tanium Connect as part of 100% IP Visibility. Contact #cmdb or #tanium for help with this integration.",
+    "minimumPassPercentage": 80,
+    "logLevel": 30,
+    "schedule": "50 04 * * *",
+    "scheduleTimeZone": "America/Phoenix",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/pluginConfigurations/asset/report-source",
+        "arguments": {
+          "config": {
+            "type": "Asset Report",
+            "maxTries": 5,
+            "retryDelayMillis": 10000,
+            "batchSize": 5000,
+            "assetReportName": "ENG-IMA - IPViz - GoDaddy IPv4 List",
+            "selectedReportId": 80
+          },
+          "module": "asset",
+          "plugin": "report-source",
+          "type": "sources",
+          "destinationType": "pluginConfigurations",
+          "name": "asset-report-source-1627321153992-76"
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": false,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "name": "ENG-IMA - IPViz - GoDaddy IPv4 List - Tanium Asset Prod US to ServiceNow Test",
+          "destinationType": "https",
+          "url": "https://godaddytest.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=ac5f54e6db40ecd859ac6e25ca961972&file_name=export-us.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  },
+  {
+    "name": "ENG-IMA - IPViz - GoDaddy IPv4 List - Tanium Asset Prod US to ServiceNow Dev",
+    "description": "For export to ServiceNow via Tanium Connect as part of 100% IP Visibility. Contact #cmdb or #tanium for help with this integration.",
+    "minimumPassPercentage": 80,
+    "logLevel": 30,
+    "schedule": "45 04 * * *",
+    "scheduleTimeZone": "America/Phoenix",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/pluginConfigurations/asset/report-source",
+        "arguments": {
+          "config": {
+            "type": "Asset Report",
+            "maxTries": 5,
+            "retryDelayMillis": 10000,
+            "batchSize": 5000,
+            "assetReportName": "ENG-IMA - IPViz - GoDaddy IPv4 List",
+            "selectedReportId": 80
+          },
+          "module": "asset",
+          "plugin": "report-source",
+          "type": "sources",
+          "destinationType": "pluginConfigurations",
+          "name": "asset-report-source-1627321150329-32"
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": false,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            },
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ],
+          "name": "ENG-IMA - IPViz - GoDaddy IPv4 List - Tanium Asset Prod US to ServiceNow Dev",
+          "destinationType": "https",
+          "url": "https://godaddydev.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=ac5f54e6db40ecd859ac6e25ca961972&file_name=export-us.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  }
+]
