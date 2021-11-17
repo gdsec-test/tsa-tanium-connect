@@ -1,0 +1,1124 @@
+[
+  {
+    "name": "ENG-TSA - PatchViz - Missing Patches & Compliance - Saved Question Prod EMEA to ServiceNow Prod",
+    "description": "For export to ServiceNow CMDB for patch visibility.",
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "15 */4 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "ENG-TSA - PatchViz - Missing Patches & Compliance - Tanium Prod EMEA to ServiceNow Prod",
+          "contextGroupName": "All Computers",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": false,
+          "excludePolling": false,
+          "flatten": false,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "GoDaddy Serial",
+              "renameTo": "GoDaddy Serial",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "GoDaddy Patch - Last Scan Time",
+              "renameTo": "GoDaddy Patch - Last Scan Time",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Patch List Id",
+              "renameTo": "Patch List Id",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Patch List Name",
+              "renameTo": "Patch List Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Compliance Status",
+              "renameTo": "Compliance Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "OS Type",
+              "renameTo": "OS Type",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Patch List Ids",
+              "renameTo": "Patch List Ids",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Tanium UID",
+              "renameTo": "Tanium UID",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Title",
+              "renameTo": "Title",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Install Status",
+              "renameTo": "Install Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Uninstallable",
+              "renameTo": "Uninstallable",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Severity",
+              "renameTo": "Severity",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Release Date",
+              "renameTo": "Release Date",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Bulletins",
+              "renameTo": "Bulletins",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Size in Bytes",
+              "renameTo": "Size in Bytes",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "MS Guid",
+              "renameTo": "MS Guid",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "KB Articles",
+              "renameTo": "KB Articles",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "CVE IDs",
+              "renameTo": "CVE IDs",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Urls",
+              "renameTo": "Urls",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Files",
+              "renameTo": "Files",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Superseded",
+              "renameTo": "Superseded",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Custom Field",
+              "renameTo": "Custom Field",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "OS Type1",
+              "renameTo": "OS Type1",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Product",
+              "renameTo": "Product",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Classification",
+              "renameTo": "Classification",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": true,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            }
+          ],
+          "name": "ENG-TSA - PatchViz - Missing Patches & Compliance - Saved Question Prod EMEA to ServiceNow Prod",
+          "destinationType": "https",
+          "url": "https://godaddy.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=671419e0db27fcd4bb5a4a2813961977&file_name=tanium-patch-emea.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 75000,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  },
+  {
+    "name": "ENG-TSA - PatchViz - Missing Patches & Compliance - Saved Question Prod EMEA to ServiceNow Test",
+    "description": "For export to ServiceNow CMDB for patch visibility.",
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "20 */4 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "ENG-TSA - PatchViz - Missing Patches & Compliance - Tanium Prod EMEA to ServiceNow Test",
+          "contextGroupName": "All Computers",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": false,
+          "excludePolling": false,
+          "flatten": false,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "GoDaddy Serial",
+              "renameTo": "GoDaddy Serial",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "GoDaddy Patch - Last Scan Time",
+              "renameTo": "GoDaddy Patch - Last Scan Time",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Patch List Id",
+              "renameTo": "Patch List Id",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Patch List Name",
+              "renameTo": "Patch List Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Compliance Status",
+              "renameTo": "Compliance Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "OS Type",
+              "renameTo": "OS Type",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Patch List Ids",
+              "renameTo": "Patch List Ids",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Tanium UID",
+              "renameTo": "Tanium UID",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Title",
+              "renameTo": "Title",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Install Status",
+              "renameTo": "Install Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Uninstallable",
+              "renameTo": "Uninstallable",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Severity",
+              "renameTo": "Severity",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Release Date",
+              "renameTo": "Release Date",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Bulletins",
+              "renameTo": "Bulletins",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Size in Bytes",
+              "renameTo": "Size in Bytes",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "MS Guid",
+              "renameTo": "MS Guid",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "KB Articles",
+              "renameTo": "KB Articles",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "CVE IDs",
+              "renameTo": "CVE IDs",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Urls",
+              "renameTo": "Urls",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Files",
+              "renameTo": "Files",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Superseded",
+              "renameTo": "Superseded",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Custom Field",
+              "renameTo": "Custom Field",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "OS Type1",
+              "renameTo": "OS Type1",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Product",
+              "renameTo": "Product",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Classification",
+              "renameTo": "Classification",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": true,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            }
+          ],
+          "name": "ENG-TSA - PatchViz - Missing Patches & Compliance - Saved Question Prod EMEA to ServiceNow Test",
+          "destinationType": "https",
+          "url": "https://godaddytest.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=671419e0db27fcd4bb5a4a2813961977&file_name=tanium-patch-emea.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 75000,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  },
+  {
+    "name": "ENG-TSA - PatchViz - Missing Patches & Compliance - Saved Question Prod EMEA to ServiceNow Dev",
+    "description": "For export to ServiceNow CMDB for patch visibility.",
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "25 */4 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "ENG-TSA - PatchViz - Missing Patches & Compliance - Tanium Prod EMEA to ServiceNow Dev",
+          "contextGroupName": "All Computers",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": false,
+          "excludePolling": false,
+          "flatten": false,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "GoDaddy Serial",
+              "renameTo": "GoDaddy Serial",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "GoDaddy Patch - Last Scan Time",
+              "renameTo": "GoDaddy Patch - Last Scan Time",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Patch List Id",
+              "renameTo": "Patch List Id",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Patch List Name",
+              "renameTo": "Patch List Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Compliance Status",
+              "renameTo": "Compliance Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "OS Type",
+              "renameTo": "OS Type",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Patch List Ids",
+              "renameTo": "Patch List Ids",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Tanium UID",
+              "renameTo": "Tanium UID",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Title",
+              "renameTo": "Title",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Install Status",
+              "renameTo": "Install Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Uninstallable",
+              "renameTo": "Uninstallable",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Severity",
+              "renameTo": "Severity",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Release Date",
+              "renameTo": "Release Date",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Bulletins",
+              "renameTo": "Bulletins",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Size in Bytes",
+              "renameTo": "Size in Bytes",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "MS Guid",
+              "renameTo": "MS Guid",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "KB Articles",
+              "renameTo": "KB Articles",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "CVE IDs",
+              "renameTo": "CVE IDs",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Urls",
+              "renameTo": "Urls",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Files",
+              "renameTo": "Files",
+              "type": null,
+              "value": null,
+              "hint": "hidden column",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Superseded",
+              "renameTo": "Superseded",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Custom Field",
+              "renameTo": "Custom Field",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "OS Type1",
+              "renameTo": "OS Type1",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Product",
+              "renameTo": "Product",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Classification",
+              "renameTo": "Classification",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": true,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/csv"
+            }
+          ],
+          "name": "ENG-TSA - PatchViz - Missing Patches & Compliance - Saved Question Prod EMEA to ServiceNow Dev",
+          "destinationType": "https",
+          "url": "https://godaddydev.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=671419e0db27fcd4bb5a4a2813961977&file_name=tanium-patch-emea.csv",
+          "method": "POST",
+          "useAuthentication": true,
+          "username": "tanium",
+          "useProxy": false,
+          "connectionTimeout": 600,
+          "batchSize": 75000,
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": "",
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  }
+]
