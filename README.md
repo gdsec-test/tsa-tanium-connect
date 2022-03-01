@@ -5,7 +5,7 @@ This repository contains Tanium Connect module configurations and jobs for direc
 
 When creating a Connect Job or any configuration the job will depend on, you must configure it identically across all Tanium environments, starting with Dev, and follow environment-specific naming conventions as described below.
 ## Naming Conventions
-Following a consistent naming standard for integrations helps align content across different Tanium modules (for example, the PatchViz integration depends on Saved Questions, Asset Views, and Connect Jobs) so it's easy to determine their purpose regardless of where they are located - whether configured in Tanium, written in documentation, or saved to version control.
+Following a consistent naming standard for integrations helps align content across different Tanium modules so it's easy to determine the purpose of a configuration and its relationship to other configurations, regardless of where it is located. The PatchViz integration, for example, depends on Saved Questions, Asset Views, and Connect Jobs, and their configuration is implemented in Tanium, documented in Confluence, and saved to GitHub for version control. Naming must be consistent across all uses of the configuration to improve maintainability and reduce the risk of error.
 
 When creating configuration in Tanium for integration purposes, name them according to these conventions:
 ### Tanium Environments
