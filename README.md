@@ -12,13 +12,13 @@ When creating configuration in Tanium for integration purposes, name them accord
 Environment Name and Short Name are frequently prepended by the word ```Tanium``` in communications and configurations.
 | Environment Name | Short Name | ServiceNow ID | Connect Job CSV Export File Name |
 |---|---|---|---|
-Development | Dev | tanos-dev | ```<filename>-tanos-dev.csv```
-Development (Legacy) | Dev Legacy | dev | ```<filename>-dev.csv```
-Production EMEA | Prod EMEA | tanos-emea | ```<filename>-tanos-emea.csv```
-Production EMEA (Legacy) | Prod EMEA Legacy | emea | ```<filename>-emea.csv```
-Production US | Prod US | tanos-us | ```<filename>-tanos-us.csv```
-Production US (Legacy) | Prod US Legacy | us | ```<filename>-us.csv```
-Cloud | Cloud | cloud | ```<filename>-cloud.csv```
+Development | Dev | tanos-dev | ```<filename>.tanos-dev.csv```
+Development (Legacy) | Dev Legacy | dev | ```<filename>.dev.csv```
+Production EMEA | Prod EMEA | tanos-emea | ```<filename>.tanos-emea.csv```
+Production EMEA (Legacy) | Prod EMEA Legacy | emea | ```<filename>.emea.csv```
+Production US | Prod US | tanos-us | ```<filename>.tanos-us.csv```
+Production US (Legacy) | Prod US Legacy | us | ```<filename>.us.csv```
+Cloud | Cloud | cloud | ```<filename>.cloud.csv```
 ### Saved Questions, Asset Reports/Views, Patch Lists, etc.
 Follow this standard when constructing a module configuration in Tanium that is not a Connect Job; for example, a Saved Question (SQ), Patch List, Asset View, or Asset Report:
 
