@@ -3,7 +3,11 @@ Managed by Tooling Support & Automations.
 
 This repository contains Tanium Connect module configurations and jobs for direct import into Tanium.
 
-When creating a Connect Job or any configuration the job will depend on, you must configure it identically across all Tanium environments, starting with Dev, and follow environment-specific naming conventions as described below.
+When creating a Connect Job or any configuration the job will depend on, you must configure it identically across all Tanium environments, starting with Dev, and follow the rules and environment-specific naming conventions as described below.
+
+## Rules
+Connect Jobs must have:
+* A name that corresponds with the naming conventions described below.
 ## Naming Conventions
 Following a consistent naming standard for integrations helps align content across different Tanium modules so it's easy to determine the purpose of a configuration and its relationship to other configurations, regardless of where it is located. The PatchViz integration, for example, depends on Saved Questions, Asset Views, and Connect Jobs, and their configuration is implemented in Tanium, documented in Confluence, and saved to GitHub for version control. Naming must be consistent across all uses of the configuration to improve maintainability and reduce the risk of error.
 
@@ -24,15 +28,15 @@ Follow this standard when constructing a module configuration in Tanium that is 
 
     <GroupName> - <Purpose> - <SourceName> - Tanium <EnvShortName> to <Destination> <DestEnv>
 
-* ```GroupName``` is the owning group (the consumer at the destination) as represented in AD/ServiceNow.
+* ```<GroupName>``` is the owning group (the consumer at the destination) as represented in AD/ServiceNow.
   * Example: ```ENG-TSA``` for Tooling Support and Automations.
   * Example: ```ENG-IMA``` for the CMDB team.
-* ```Purpose``` should be a condensed descriptor of the project or purpose.
+* ```<Purpose>``` should be a condensed descriptor of the project or purpose.
   * This field can be flexible because not everything is a project, but each thing has a purpose.
   * Example: ```SecViz``` Where the project name is Security Visibility, and its purpose is Security Visibility.
   * Example: ```IPViz``` Where the project name is 100% IP Visibility, and its purpose is Security Visibility.
   * Example: ```Tanium Patch Visibility``` where the initiative is PatchViz, but Tanium Patch data is the specific information being retrieved by a Patch List named according to this convention, so we write that explicitly.
-* ```SourceName``` List the unique sensor name(s) in the Saved Question or provide a condensed description if there are too many sensors to list. Concatenate with ampersands (&).
+* ```<SourceName>``` List the unique sensor name(s) in the Saved Question or provide a condensed description if there are too many sensors to list. Concatenate with ampersands (&).
   * Example: ```Computer ID & GoDaddy Serial``` lists the two specific sensors used by the SQ.
   * Example: ```Missing Patches & Compliance``` condenses a combination of sensors into a shorter, but accurate description of what information the SQ is retrieving.
 * ```<EnvShortName>``` refers to the ```Short Name``` field in the **Tanium Environments** table above.
