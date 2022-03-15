@@ -5,9 +5,22 @@ This repository contains Tanium Connect module configurations and jobs for direc
 
 When creating a Connect Job or any configuration the job will depend on, you must configure it identically across all Tanium environments, starting with Dev, and follow the rules and environment-specific naming conventions as described below.
 
-## Rules
-Connect Jobs must have:
+## Rules and Guidelines
+### Configuration
+Connect Jobs and its dependent configurations must have:
 * A name that corresponds with the naming conventions described below.
+* A description (where a Description field is provided) that clearly describes its purpose and indicate relationships and dependencies.
+* A documented schedule, where one is set, with consistent values that demonstrate the thought put into scheduling
+  * This is important because every connection must be created multiple times - one for each Tanium environment
+  * Even more important where the integration/exports being built require multiple connections per Tanium environment
+  * Typically the schedule would be documented in a README in version control next to JSON exports for the job
+* Connect Jobs must be exported and recorded in version control. The correct place for them is inside this repo!
+
+### Uploading Connect Jobs to Version Control
+* : Create the first Connect Job in Tanium Dev and when ready, export it as JSON. Commit to version control.
+    * Using a copy of the exported JSON, modify the name, destination, scheudle and other environment-specific variables to match the next Tanium environment for deployment, and then save that as a separate JSON file. Upload to version control.
+    * Commit the modified job to its respective Tanium environment. If you saved an authentication password for the destination into the JSON, ensure you do not commit the password
+    * Now you have ensured the job configuration is identical across environments!
 ## Naming Conventions
 Following a consistent naming standard for integrations helps align content across different Tanium modules so it's easy to determine the purpose of a configuration and its relationship to other configurations, regardless of where it is located. The PatchViz integration, for example, depends on Saved Questions, Asset Views, and Connect Jobs, and their configuration is implemented in Tanium, documented in Confluence, and saved to GitHub for version control. Naming must be consistent across all uses of the configuration to improve maintainability and reduce the risk of error.
 
