@@ -1,0 +1,150 @@
+[
+  {
+    "name": "Infosec-Response - User Audit - Tanium AL PROD US To Cloudlogsink",
+    "description": null,
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "0 9 * * *",
+    "scheduleTimeZone": "America/Los_Angeles",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/auditlogs",
+        "arguments": {
+          "globalSettings": false,
+          "groups": true,
+          "packages": false,
+          "savedActions": false,
+          "savedQuestions": false,
+          "sensors": false,
+          "users": true,
+          "userGroups": true,
+          "whitelistedUrls": false,
+          "roles": true,
+          "contentSets": true,
+          "rolePrivileges": true,
+          "roleMemberships": true,
+          "userGroupRoleMemberships": true,
+          "consoleAuthentication": false,
+          "batchSize": 1000,
+          "daysToCollect": 3,
+          "lastRun": "2021-01-11T17:15:47.509Z"
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "TimeStamp",
+              "renameTo": "TimeStamp",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "DateTime",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ObjectType",
+              "renameTo": "ObjectType",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "User",
+              "renameTo": "User",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "AuditType",
+              "renameTo": "AuditType",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Target",
+              "renameTo": "Target",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "AuditText",
+              "renameTo": "AuditText",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "fluentd-label",
+              "renameTo": "fluentd-label",
+              "type": "userSpecifiedValue",
+              "value": "taniumconnect-prod",
+              "hint": "added by user",
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/syslogrfcs",
+        "arguments": {
+          "msgId": null,
+          "sdId": "{Source}@017472",
+          "facility": "LocalUse0",
+          "severity": "Informational",
+          "appName": "Tanium",
+          "separator": "\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "sendQuestionSource": false,
+          "bsd": false
+        }
+      },
+      {
+        "route": "/v1/destinations/sockets",
+        "arguments": {
+          "name": "tanium_td",
+          "destinationType": "sockets",
+          "host": "cloudlogsink.prod.prodsec.gdcorp.tools",
+          "port": 24227,
+          "protocol": "TCP",
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": null
+        }
+      }
+    ],
+    "destinationType": "sockets"
+  }
+]

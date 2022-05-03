@@ -1,0 +1,136 @@
+[
+  {
+    "name": "Eng-TSA - Cloudlogsink - Linux Package Orphans - Tanium SQ PROD US To Cloudlogsink",
+    "description": "Once a day identify Linux files in sensitive directories which are not owned by a package.",
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "30 7 * * *",
+    "scheduleTimeZone": "America/Phoenix",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "Eng-TSA - Splunk - Linux Package Orphans",
+          "contextGroupName": "All Computers",
+          "percentComplete": 95,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": true,
+          "excludePolling": false,
+          "flatten": true,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "File",
+              "renameTo": "File",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "MD5",
+              "renameTo": "MD5",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Row Number",
+              "renameTo": "Row Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": " fluentd-label",
+              "renameTo": " fluentd-label",
+              "type": "userSpecifiedValue",
+              "value": " taniumconnect-prod",
+              "hint": "added by user",
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/syslogrfcs",
+        "arguments": {
+          "msgId": null,
+          "sdId": "{Source}@017472",
+          "facility": "LocalUse0",
+          "severity": "Informational",
+          "appName": "Tanium",
+          "separator": "\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "sendQuestionSource": false,
+          "bsd": false
+        }
+      },
+      {
+        "route": "/v1/destinations/sockets",
+        "arguments": {
+          "name": "tanium_td",
+          "destinationType": "sockets",
+          "host": "cloudlogsink.prod.prodsec.gdcorp.tools",
+          "port": 24227,
+          "protocol": "TCP",
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": null
+        }
+      }
+    ],
+    "destinationType": "sockets"
+  }
+]

@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Infosec-Response - Listening Ports with MD5 Hash-Tanium SQ PROD US To Cloudlogsink",
+    "description": "Tanium Splunk Application \nAdministrator’s Guide version 3.0 \n\nBest Practices Splunk question",
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "10 * * * *",
+    "scheduleTimeZone": "America/Denver",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "Splunk Listening Ports with MD5 Hash",
+          "contextGroupName": "All Computers",
+          "percentComplete": 95,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": true,
+          "excludePolling": false,
+          "flatten": true,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "Computer Name",
+              "renameTo": "Computer Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Last Logged In User",
+              "renameTo": "Last Logged In User",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Process",
+              "renameTo": "Process",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "MD5 Hash",
+              "renameTo": "MD5 Hash",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Name",
+              "renameTo": "Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Protocol",
+              "renameTo": "Protocol",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "IP Address",
+              "renameTo": "IP Address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Port",
+              "renameTo": "Port",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Row Number",
+              "renameTo": "Row Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "fluentd-label",
+              "renameTo": "fluentd-label",
+              "type": "userSpecifiedValue",
+              "value": "taniumconnect-prod",
+              "hint": "added by user",
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/syslogrfcs",
+        "arguments": {
+          "msgId": null,
+          "sdId": "{Source}@017472",
+          "facility": "LocalUse0",
+          "severity": "Informational",
+          "appName": "Tanium",
+          "separator": "\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "sendQuestionSource": false,
+          "bsd": false
+        }
+      },
+      {
+        "route": "/v1/destinations/sockets",
+        "arguments": {
+          "name": "tanium_td",
+          "destinationType": "sockets",
+          "host": "cloudlogsink.prod.prodsec.gdcorp.tools",
+          "port": 24227,
+          "protocol": "TCP",
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": null
+        }
+      }
+    ],
+    "destinationType": "sockets"
+  }
+]

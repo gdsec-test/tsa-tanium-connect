@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Infosec-Response - Cloudlogsink - WMI Events -Tanium SQ PROD US To Cloudlogsink",
+    "description": "Windows Management Instrumentation (WMI) is a core system management technology present in all versions of Windows since XP and Server 2000. Among its numerous features, WMI includes a powerful event handling framework that can monitor for low-level system events and automatically initiate actions when they occur. These actions are implemented in the form of “event consumers” that launch an arbitrary command line or a Windows Scripting Host script (VBScript or JScript) when triggered. While the complexities of WMI eventing have allowed it to remain relatively obscure, recent research[1] has highlighted how attackers can abuse it as a covert storage and persistence mechanism for malware.\n\nFortunately, identifying malicious WMI event consumers is a great use-case for Tanium’s real-time search and stacking capabilities. A typical Windows environment has only a handful of default event consumers, and 3rd party applications rarely install additional consumers. So we built a solution to help our customers both instantly search their endpoints for rogue event consumers, and proactively monitor for the introduction of new, malicious entries.\n\nOur new incident response sensor, “WMI Event Consumers”, examines all event consumers on a system and returns three key fields: consumer name, class (defining the type), and command line template (populated with either the command line for an CommandLineEventConsumer, or the script to be executed for an ActiveScriptEventConsumer). By default, this is a “counting” sensor — meaning that Tanium counts each unique combination of these fields across all queried systems. This allows you to easily spot the outliers with a low frequency of occurrence.",
+    "minimumPassPercentage": 90,
+    "logLevel": 30,
+    "schedule": "10 * * * *",
+    "scheduleTimeZone": "America/Phoenix",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 2,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "Infosec-Response - Splunk - Comp Name and WMI Event Consumers",
+          "contextGroupName": "All Computers",
+          "percentComplete": 90,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": true,
+          "excludePolling": false,
+          "flatten": true,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "Computer Name",
+              "renameTo": "Computer Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Name",
+              "renameTo": "Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Class",
+              "renameTo": "Class",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Command Line Template",
+              "renameTo": "Command Line Template",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Row Number",
+              "renameTo": "Row Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "fluentd-label",
+              "renameTo": "fluentd-label",
+              "type": "userSpecifiedValue",
+              "value": "taniumconnect-prod",
+              "hint": "added by user",
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/syslogrfcs",
+        "arguments": {
+          "msgId": null,
+          "sdId": "{Source}@017472",
+          "facility": "LocalUse0",
+          "severity": "Informational",
+          "appName": "Tanium",
+          "separator": "\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "sendQuestionSource": false,
+          "bsd": false
+        }
+      },
+      {
+        "route": "/v1/destinations/sockets",
+        "arguments": {
+          "name": "tanium_td",
+          "destinationType": "sockets",
+          "host": "cloudlogsink.prod.prodsec.gdcorp.tools",
+          "port": 24227,
+          "protocol": "TCP",
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": null
+        }
+      }
+    ],
+    "destinationType": "sockets"
+  }
+]
