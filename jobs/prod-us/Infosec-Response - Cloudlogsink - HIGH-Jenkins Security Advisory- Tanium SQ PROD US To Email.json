@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Infosec-Response - Cloudlogsink - HIGH-Jenkins Security Advisory- Tanium SQ PROD US To Email",
+    "description": "Continuous monitoring for Jenkins Security Advisory",
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "25 21 * * 0",
+    "scheduleTimeZone": "America/Denver",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "Infosec-Response - Splunk - HIGH-Jenkins Security Advisory",
+          "contextGroupName": "All Computers",
+          "percentComplete": 0,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": false,
+          "excludePolling": false,
+          "flatten": true,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/cefs",
+        "arguments": {
+          "vendor": "Tanium",
+          "product": "Tanium Application Server",
+          "productVersion": "1",
+          "source": "{Source}",
+          "signatureId": "0",
+          "severity": 0,
+          "separator": "\\r\\n",
+          "valueEscape": "\\s",
+          "valueEscapeReplace": "-"
+        }
+      },
+      {
+        "route": "/v1/destinations/smtps",
+        "arguments": {
+          "name": "Email_Jenkins_Sec_Advisory",
+          "destinationType": "smtps",
+          "host": "relay-app.secureserver.net",
+          "port": 25,
+          "timeout": 10,
+          "useAuthentication": false,
+          "username": "",
+          "emailSubject": "Tanium Notification - Jenkins Security Advisory - March 2021",
+          "emailFrom": "TaniumConnect@godaddy.com",
+          "emailTo": "SRA@godaddy.com",
+          "emailCc": "",
+          "emailBcc": "",
+          "attachment": true,
+          "attachmentFilename": "Jenkins Security Advisory - March 2021.csv",
+          "fileNameTimeStampFormat": "MM-DD-YYYY",
+          "compressionType": "Zip",
+          "secure": true,
+          "password": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "smtps"
+  }
+]

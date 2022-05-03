@@ -1,0 +1,126 @@
+[
+  {
+    "name": "Infosec-Response - Cloudlogsink - QuestionLog  - Tanium SQ PROD US To Cloudlogsink",
+    "description": null,
+    "minimumPassPercentage": 90,
+    "logLevel": 30,
+    "schedule": "30 * * * *",
+    "scheduleTimeZone": "America/Phoenix",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 2,
+    "streams": [
+      {
+        "route": "/v1/sources/questionlogs",
+        "arguments": {
+          "userNameFilter": "",
+          "questionNameFilter": "",
+          "questionTextFilter": "",
+          "batchSize": 100,
+          "lastId": 9155186
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "QuestionId",
+              "renameTo": "QuestionId",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Username",
+              "renameTo": "Username",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Expiration",
+              "renameTo": "Expiration",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "DateTime",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Source",
+              "renameTo": "Source",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Question",
+              "renameTo": "Question",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "fluentd-label",
+              "renameTo": "fluentd-label",
+              "type": "userSpecifiedValue",
+              "value": "taniumconnect-prod",
+              "hint": "added by user",
+              "valueType": null,
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/syslogrfcs",
+        "arguments": {
+          "msgId": null,
+          "sdId": "{Source}@017472",
+          "facility": "LocalUse0",
+          "severity": "Informational",
+          "appName": "Tanium",
+          "separator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "sendQuestionSource": false,
+          "bsd": false
+        }
+      },
+      {
+        "route": "/v1/destinations/sockets",
+        "arguments": {
+          "name": "tanium_td",
+          "destinationType": "sockets",
+          "host": "cloudlogsink.prod.prodsec.gdcorp.tools",
+          "port": 24227,
+          "protocol": "TCP",
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": null
+        }
+      }
+    ],
+    "destinationType": "sockets"
+  }
+]

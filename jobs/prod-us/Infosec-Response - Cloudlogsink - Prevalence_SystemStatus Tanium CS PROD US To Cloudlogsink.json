@@ -1,0 +1,200 @@
+[
+  {
+    "name": "Infosec-Response - Cloudlogsink - Prevalence_SystemStatus Tanium CS PROD US To Cloudlogsink",
+    "description": "System status run 1 per day",
+    "minimumPassPercentage": 90,
+    "logLevel": 30,
+    "schedule": "0 1 * * *",
+    "scheduleTimeZone": "America/Phoenix",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 2,
+    "streams": [
+      {
+        "route": "/v1/sources/systemstatuses",
+        "arguments": {
+          "lastRegistrationMinutes": 0,
+          "batchSize": 100
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "HostName",
+              "renameTo": "HostName",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ClientNetworkLocation",
+              "renameTo": "ClientNetworkLocation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ServerNetworkLocation",
+              "renameTo": "ServerNetworkLocation",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "SendState",
+              "renameTo": "SendState",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ReceiveState",
+              "renameTo": "ReceiveState",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Status",
+              "renameTo": "Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "LastRegistration",
+              "renameTo": "LastRegistration",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "DateTime",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "FullVersion",
+              "renameTo": "FullVersion",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ProtocolVersion",
+              "renameTo": "ProtocolVersion",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ValidKey",
+              "renameTo": "ValidKey",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ComputerId",
+              "renameTo": "ComputerId",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "RegisteredWithTLS",
+              "renameTo": "RegisteredWithTLS",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "fluentd-label",
+              "renameTo": "fluentd-label",
+              "type": "userSpecifiedValue",
+              "value": "taniumconnect-prod",
+              "hint": "added by user",
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/syslogrfcs",
+        "arguments": {
+          "msgId": null,
+          "sdId": "{Source}@017472",
+          "facility": "LocalUse0",
+          "severity": "Informational",
+          "appName": "Tanium",
+          "separator": "\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "sendQuestionSource": false,
+          "bsd": false
+        }
+      },
+      {
+        "route": "/v1/destinations/sockets",
+        "arguments": {
+          "name": "tanium_td",
+          "destinationType": "sockets",
+          "host": "cloudlogsink.prod.prodsec.gdcorp.tools",
+          "port": 24227,
+          "protocol": "TCP",
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": null
+        }
+      }
+    ],
+    "destinationType": "sockets"
+  }
+]

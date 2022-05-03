@@ -1,0 +1,125 @@
+[
+  {
+    "name": "ENG-TSA MWP SIR PHP Bad File Count on p3nlwpapp001 to CloudLogSink",
+    "description": "Ships saved question results to CloudLogSink. Created in response to SIR0034749 and SIR0036160. Drives Elastic alerting used by GCSO/IR when the result of this sensor hits 100 or greater. Contact IR team for lifecycle management.",
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "50 */2 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "GoDaddy MWP SIR PHP Bad File Count on p3nlwpapp001",
+          "contextGroupName": "All Computers",
+          "percentComplete": 100,
+          "batchSize": 1000,
+          "hideErrors": false,
+          "hideNoResults": true,
+          "excludePolling": false,
+          "flatten": true,
+          "mostRecent": false,
+          "timeout": 10,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "GoDaddy MWP SIR0034749 Bad File Count",
+              "renameTo": "GoDaddy MWP SIR0034749 Bad File Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Row Number",
+              "renameTo": "Row Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "fluentd-label",
+              "renameTo": "fluentd-label",
+              "type": "userSpecifiedValue",
+              "value": "taniumconnect-prod",
+              "hint": "added by user",
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/syslogrfcs",
+        "arguments": {
+          "msgId": null,
+          "sdId": "{Source}@017472",
+          "facility": "LocalUse0",
+          "severity": "Informational",
+          "appName": "Tanium",
+          "separator": "\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "sendQuestionSource": true,
+          "bsd": false
+        }
+      },
+      {
+        "route": "/v1/destinations/sockets",
+        "arguments": {
+          "name": "tanium_td",
+          "destinationType": "sockets",
+          "host": "cloudlogsink.prod.prodsec.gdcorp.tools",
+          "port": 24227,
+          "protocol": "TCP",
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": null
+        }
+      }
+    ],
+    "destinationType": "sockets"
+  }
+]

@@ -1,0 +1,214 @@
+[
+  {
+    "name": "Infosec-Response - Cloudlogsink - ActionLog_toJSON -Tanium ActionHistory PROD US To Cloudlogsink",
+    "description": "action log to json revisted",
+    "minimumPassPercentage": 90,
+    "logLevel": 30,
+    "schedule": "0 * * * *",
+    "scheduleTimeZone": "America/Phoenix",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 4,
+    "streams": [
+      {
+        "route": "/v1/sources/actionlogs",
+        "arguments": {
+          "actionNameFilter": null,
+          "packageNameFilter": null,
+          "commentFilter": null,
+          "batchSize": 1000,
+          "lastId": 2101007
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "ActionId",
+              "renameTo": "ActionId",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ActionName",
+              "renameTo": "ActionName",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "PackageName",
+              "renameTo": "PackageName",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Comment",
+              "renameTo": "Comment",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Status",
+              "renameTo": "Status",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Issuer",
+              "renameTo": "Issuer",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "SourceId",
+              "renameTo": "SourceId",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "StartTime",
+              "renameTo": "StartTime",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "DateTime",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Expiration",
+              "renameTo": "Expiration",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "DateTime",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "InsertTime",
+              "renameTo": "InsertTime",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "DateTime",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Command",
+              "renameTo": "Command",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "DistributeOver",
+              "renameTo": "DistributeOver",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Approver",
+              "renameTo": "Approver",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "fluentd-label",
+              "renameTo": "fluentd-label",
+              "type": "userSpecifiedValue",
+              "value": "taniumconnect-prod",
+              "hint": "added by user",
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/syslogrfcs",
+        "arguments": {
+          "msgId": null,
+          "sdId": "{Source}@017472",
+          "facility": "LocalUse0",
+          "severity": "Informational",
+          "appName": "Tanium",
+          "separator": "\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "sendQuestionSource": false,
+          "bsd": false
+        }
+      },
+      {
+        "route": "/v1/destinations/sockets",
+        "arguments": {
+          "name": "tanium_td",
+          "destinationType": "sockets",
+          "host": "cloudlogsink.prod.prodsec.gdcorp.tools",
+          "port": 24227,
+          "protocol": "TCP",
+          "secure": true,
+          "trustOnFirstUse": true,
+          "cert": null
+        }
+      }
+    ],
+    "destinationType": "sockets"
+  }
+]
