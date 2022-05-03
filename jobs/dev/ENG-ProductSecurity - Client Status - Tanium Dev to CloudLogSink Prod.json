@@ -1,0 +1,125 @@
+[
+  {
+    "name": "ENG-ProductSecurity - Client Status - Tanium Dev to CloudLogSink Prod",
+    "description": "",
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "32 11 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/savedquestions",
+        "arguments": {
+          "sortColumns": "[]",
+          "savedQuestionName": "Computer Name",
+          "contextGroupName": "All Computers",
+          "percentComplete": 95,
+          "batchSize": 1000,
+          "hideErrors": true,
+          "hideNoResults": true,
+          "excludePolling": false,
+          "flatten": true,
+          "mostRecent": false,
+          "timeout": 2,
+          "recentResultBuckets": "600,3600,86400,604800",
+          "filterString": "",
+          "maxRows": -1,
+          "includeOtherRow": false
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "fluent-label",
+              "renameTo": "fluent-label",
+              "type": "userSpecifiedValue",
+              "value": "taniumconnect-dev-syslog",
+              "hint": "added by user",
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Computer Name",
+              "renameTo": "Computer Name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "String",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Count",
+              "renameTo": "Count",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "Row Number",
+              "renameTo": "Row Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "Band Number",
+              "renameTo": "Band Number",
+              "type": null,
+              "value": null,
+              "hint": "added during connection run",
+              "valueType": "Numeric",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/syslogrfcs",
+        "arguments": {
+          "msgId": null,
+          "sdId": "{Source}@017472",
+          "facility": "LocalUse0",
+          "severity": "Informational",
+          "appName": "Tanium",
+          "separator": "\\r\\n",
+          "valueEscape": "",
+          "valueEscapeReplace": "",
+          "sendQuestionSource": false,
+          "bsd": false
+        }
+      },
+      {
+        "route": "/v1/destinations/sockets",
+        "arguments": {
+          "name": "Cloud Log Sink Prod",
+          "destinationType": "sockets",
+          "host": "cloudlogsink.prod.prodsec.gdcorp.tools",
+          "port": 24227,
+          "protocol": "TCP",
+          "secure": true,
+          "trustOnFirstUse": false,
+          "cert": ""
+        }
+      }
+    ],
+    "destinationType": "sockets"
+  }
+]
