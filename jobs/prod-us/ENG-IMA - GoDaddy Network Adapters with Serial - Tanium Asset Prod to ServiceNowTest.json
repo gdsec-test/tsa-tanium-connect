@@ -1,0 +1,147 @@
+[
+  {
+    "name": "ENG-IMA - GoDaddy Network Adapters with Serial - Tanium Asset Prod to ServiceNowTest",
+    "description": "Ships Tanium View data about GoDaddy NICs to ServiceNow",
+    "minimumPassPercentage": 0,
+    "logLevel": 30,
+    "schedule": "59 19 * * *",
+    "scheduleTimeZone": "UTC",
+    "moduleCallbackUri": null,
+    "maxOldSpaceSize": 1,
+    "streams": [
+      {
+        "route": "/v1/sources/pluginConfigurations/asset/report-source",
+        "arguments": {
+          "config": {
+            "type": "Asset Computers",
+            "maxTries": 5,
+            "retryDelayMillis": 10000,
+            "batchSize": 200,
+            "assetViewName": "ENG-IMA - GoDaddy Network Adapters with Serial - Tanium Asset Prod to ServiceNow Test",
+            "flatten": true,
+            "assetViewId": 65
+          },
+          "module": "asset",
+          "plugin": "report-source",
+          "type": "sources",
+          "destinationType": "pluginConfigurations",
+          "name": "asset-report-source-1656012004619-50"
+        }
+      },
+      {
+        "route": "/v1/formats/columns",
+        "arguments": {
+          "columns": [
+            {
+              "name": "id",
+              "renameTo": "id",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            },
+            {
+              "name": "godaddy_serial",
+              "renameTo": "godaddy_serial",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ci_godaddy_network_adapter device_name",
+              "renameTo": "ci_godaddy_network_adapter device_name",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ci_godaddy_network_adapter mac_address",
+              "renameTo": "ci_godaddy_network_adapter mac_address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ci_godaddy_network_adapter ip_address",
+              "renameTo": "ci_godaddy_network_adapter ip_address",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": true
+            },
+            {
+              "name": "ci_godaddy_network_adapter id",
+              "renameTo": "ci_godaddy_network_adapter id",
+              "type": null,
+              "value": null,
+              "hint": null,
+              "valueType": "Unmodified",
+              "defaultValue": null,
+              "formatString": null,
+              "checked": false
+            }
+          ]
+        }
+      },
+      {
+        "route": "/v1/formats/csvs",
+        "arguments": {
+          "includeHeaders": false,
+          "detectDde": true,
+          "valueEscape": "",
+          "valueEscapeReplace": ""
+        }
+      },
+      {
+        "route": "/v1/destinations/https",
+        "arguments": {
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "application/json"
+            }
+          ],
+          "name": "ENG-IMA - GoDaddy Network Adapters with Serial - Tanium Asset Prod to ServiceNowTest",
+          "destinationType": "https",
+          "url": "https://godaddytest.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=da13f3a1dbbfe05059ac6e25ca961943&file_name=godaddy_nics_prod.csv",
+          "method": "POST",
+          "useAuthentication": "basic",
+          "username": "tanium_discover",
+          "useProxy": false,
+          "connectionTimeout": 20,
+          "batchSize": 0,
+          "secure": true,
+          "trustOnFirstUse": false,
+          "cert": "",
+          "clientId": "",
+          "authUrl": "",
+          "password": "[not available on export]",
+          "secret": "[not available on export]"
+        }
+      }
+    ],
+    "destinationType": "https"
+  }
+]
