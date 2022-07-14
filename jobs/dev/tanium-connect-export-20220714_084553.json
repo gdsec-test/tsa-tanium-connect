@@ -1,6 +1,6 @@
 [
   {
-    "name": "ENG-IMA - Tanium Sync All - Tanium Asset Dev to ServiceNow Test",
+    "name": "ENG-IMA - Tanium Sync All - Tanium Asset Dev to ServiceNow Dev",
     "description": "For export to ServiceNow to populate the CMDB.",
     "minimumPassPercentage": 0,
     "logLevel": 10,
@@ -17,7 +17,7 @@
             "maxTries": 5,
             "retryDelayMillis": 10000,
             "batchSize": 1000,
-            "assetViewName": "ENG-IMA - Tanium Sync All - Tanium Asset Dev to ServiceNow Test",
+            "assetViewName": "ENG-IMA - Tanium Sync All - Tanium Asset Dev to ServiceNow Dev",
             "assetViewId": 15
           },
           "module": "asset",
@@ -309,9 +309,9 @@
               "value": "text/csv"
             }
           ],
-          "name": "ENG-IMA - Tanium Sync All - Tanium Asset Dev to ServiceNow Test",
+          "name": "ENG-IMA - Tanium Sync All - Tanium Asset Dev to ServiceNow Dev",
           "destinationType": "https",
-          "url": "https://godaddytest.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=e7e8ec04db1f6c5459ac6e25ca961986&file_name=tanium-sync-all-dev.csv",
+          "url": "https://godaddydev.service-now.com/api/now/attachment/file?table_name=u_temp_upload&table_sys_id=e7e8ec04db1f6c5459ac6e25ca961986&file_name=tanium-sync-all-dev.csv",
           "method": "POST",
           "useAuthentication": "basic",
           "username": "tanium",
